@@ -1,0 +1,14 @@
+<h1>All Employees</h1>
+<div class="cards-container">
+    <div *ngFor="let employee of allEmployeeData" class="card">
+    <h2><i class="bi bi-person"></i>{{ employee.employeeName }}</h2>
+    <hr class="employee-name-divider">
+    <div class="card-body">
+        <p><i class="bi bi-award-fill"></i><label>Employee ID: </label>{{ employee.employeeId }}</p>
+        <p><i class="bi bi-person-vcard-fill"></i><label>Designation: </label>{{ employee.employeeDesignation }}</p>
+        <p><i class="bi bi-envelope-at"></i><label>mailId: </label>{{ employee.employeeEmail }}</p>
+        <p><i class="bi bi-telephone"></i><label>Contact: </label>{{ employee.employeePhoneno }}</p>
+    </div>
+    </div>
+</div>
+<button type="button" class="btn btn-primary" (click)="navigateToOrgProfile()">back</button>

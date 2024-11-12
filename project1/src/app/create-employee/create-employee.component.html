@@ -1,0 +1,63 @@
+<div class="main">
+  <div class="container">
+      <h2>Create Employee</h2>
+      <form [formGroup]="createEmployeeForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+              <label for="employeeName">Employee Name</label>
+              <input id="employeeName" formControlName="employeeName" type="text" class="form-control" />
+              <div *ngIf="createEmployeeForm.get('employeeName')?.invalid && createEmployeeForm.get('employeeName')?.touched" class="text-danger">
+                  Employee Name is required.
+              </div>
+          </div>
+
+          <div class="form-group">
+            <label for="employeeDesignation">Employee Designation</label>
+            <select id="employeeDesignation" formControlName="employeeDesignation" class="form-control">
+              <option value="">Select Designation</option>  <!-- Default empty option -->
+              <option value="developer">Developer</option>
+              <option value="tester">Tester</option>
+            </select>
+            
+            <div *ngIf="createEmployeeForm.get('employeeDesignation')?.invalid && createEmployeeForm.get('employeeDesignation')?.touched" class="text-danger">
+              Employee Designation is required.
+            </div>
+          </div>
+          
+
+          <div class="form-group">
+              <label for="employeePassword">Employee Password</label>
+              <input id="employeePassword" formControlName="employeePassword" type="password" class="form-control" />
+              <div *ngIf="createEmployeeForm.get('employeePassword')?.invalid && createEmployeeForm.get('employeePassword')?.touched" class="text-danger">
+                  Password is required and must be at least 6 characters long.
+              </div>
+          </div>
+
+          <div class="form-group">
+              <label for="employeePhoneno">Employee Phone Number</label>
+              <input id="employeePhoneno" formControlName="employeePhoneno" type="text" class="form-control" />
+              <div *ngIf="createEmployeeForm.get('employeePhoneno')?.invalid && createEmployeeForm.get('employeePhoneno')?.touched" class="text-danger">
+                  Please enter a valid 10-digit phone number.
+              </div>
+          </div>
+
+          <div class="form-group">
+              <label for="employeeEmail">Employee Email</label>
+              <input id="employeeEmail" formControlName="employeeEmail" type="email" class="form-control" />
+              <div *ngIf="createEmployeeForm.get('employeeEmail')?.invalid && createEmployeeForm.get('employeeEmail')?.touched" class="text-danger">
+                  Please enter a valid email address.
+              </div>
+          </div>
+
+          <!-- Button container -->
+          <div class="button-container">
+              <button type="submit"class="btn btn-primary">Create Employee</button>
+              <button type="button" class="btn btn-secondary" (click)="resetForm()">Reset</button>
+          </div>
+      </form>
+  </div>
+  
+  
+  <div class="back-button-container">
+    <button type="button" class="btn btn-back" (click)="goBack()">Back</button>
+  </div>
+</div>

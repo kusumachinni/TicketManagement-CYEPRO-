@@ -1,0 +1,127 @@
+<h1>All Projects</h1>
+<div class="cards-container">
+    <div *ngFor="let project of projects" class="card">
+      <h2>{{ project.projectName }}</h2>
+      <hr class="project-name-divider"> <!-- Divider line -->
+      <div class="card-body">
+            <p><label>Project ID: </label>{{ project.projectId }}</p>
+            <p><label>Project Description: </label>{{ project.projectDescription }}</p>
+            <div class="stats-container"> <!-- Flex container for stats -->
+                <p class="stat-item">
+                    <i class="bi bi-person" (click)="getAssignedEmployees(project.projectId)"></i> <span>{{ project.employeeCount }}</span>
+                </p>
+                
+                <!-- <p class="stat-item">
+                    <i class="bi bi-ticket" (click)="getAssignedTickets(project.projectId)"></i> <span>{{ project.ticketCount }} </span>
+                </p> -->
+                <p class="stat-item">
+                    <i class="bi bi-clock" (click)="getAssignedSprints(project.projectId)"></i> <span>{{ project.sprintsCount }} </span>
+                </p>
+            </div>
+            <button (click)="openAssignModal(project.projectId)" class="assign-btn">Assign</button>
+            <button (click)="openAddSprintModal(project.projectId)" class="assign-btn">Add Sprint</button>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="isModalOpen" class="modal">
+    <div class="modal-content">
+      <h3>Select Employees for Assignment</h3>
+      <div *ngFor="let employee of availableEmployees">
+        <label>
+          <input type="checkbox" [(ngModel)]="employee.selected" />
+          {{ employee.employeeName }}
+        </label>
+      </div>
+      <button type="button" (click)="applyAssignment()">Apply</button>
+      <button type="button" (click)="closeModal()">Close</button>
+    </div>
+</div>
+
+<div *ngIf="isEmployeeModalOpen" class="modal">
+    <div class="modal-content">
+      <h3>Assigned Employees</h3>
+      <ul>
+        <li *ngFor="let employee of assignedEmployees">
+          {{ employee.employeeName }} ({{ employee.employeeDesignation }})
+        </li>
+      </ul>
+      <button type="button" (click)="closeModal()">Close</button>
+    </div>
+</div>
+
+<div *ngIf="isSprintModalOpen" class="modal">
+  <div class="modal-content">
+    <h3 *ngIf="!isTicketModalOpen">Assigned Sprints</h3>
+    <h3 *ngIf="isTicketModalOpen">Tickets for Selected Sprint</h3>
+
+    <!-- Sprint list view -->
+    <div *ngIf="!isTicketModalOpen">
+      <ul>
+      <li *ngFor="let sprint of assignedSprints">
+        <p>{{ sprint.sprintName }} ({{sprint.sprintGoal}})</p>
+        <!-- Icon to fetch tickets for this sprint -->
+        <i class="bi bi-ticket" (click)="getTicketsForSprint(sprint.sprintId)"></i> Tickets
+      </li>
+      </ul>
+      <button type="button" (click)="closeModal()">Close</button>
+    </div>
+
+    <!-- Ticket list view for selected sprint -->
+    <div *ngIf="isTicketModalOpen">
+      <ul>
+      <li *ngFor="let ticket of sprintTickets">
+        <p>{{ ticket.ticketName }}({{ ticket.ticketDescription }})</p>
+      </li>
+    </ul>
+      <button type="button" (click)="goBackToSprints()">Back</button>
+      <button type="button" (click)="closeModal()">Close</button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="isSprintModal" class="modal">
+  <div class="modal-content">
+    <h3>Create Sprint</h3>
+    <!-- Bind form to ngForm for validation and refer as "sprintForm" -->
+    <form #sprintForm="ngForm" (ngSubmit)="createSprint()">
+      <label for="sprintName">Sprint Name:</label>
+      <input id="sprintName" [(ngModel)]="newSprint.sprintName" name="sprintName" required>
+      <div *ngIf="sprintForm.submitted && !sprintForm.controls['sprintName']?.valid" class="error">
+        Sprint Name is required.
+      </div>
+
+      <label for="sprintGoal">Sprint Goal:</label>
+      <input id="sprintGoal" [(ngModel)]="newSprint.sprintGoal" name="sprintGoal" required>
+      <div *ngIf="sprintForm.submitted && !sprintForm.controls['sprintGoal']?.valid" class="error">
+        Sprint Goal is required.
+      </div>
+
+      <label for="sprintStartDate">Start Date:</label>
+      <input id="sprintStartDate" type="date" [(ngModel)]="newSprint.sprintStartDate" name="sprintStartDate" (change)="updateEndDate()" required>
+      <div *ngIf="sprintForm.submitted && !sprintForm.controls['sprintStartDate']?.valid" class="error">
+        Start Date is required.
+      </div>
+
+      <label for="duration">Duration (Weeks):</label>
+      <select id="duration" [(ngModel)]="newSprint.duration" name="duration" (change)="updateEndDate()" required>
+        <option *ngFor="let week of weeks" [value]="week">{{ week }} week(s)</option>
+      </select>
+      <div *ngIf="sprintForm.submitted && !sprintForm.controls['duration']?.valid" class="error">
+        Duration is required.
+      </div>
+
+      <label for="sprintEndDate">End Date:</label>
+      <input id="sprintEndDate" type="date" [value]="newSprint.sprintEndDate | date:'yyyy-MM-dd'" readonly>
+
+      <!-- Submit button disabled until form is valid -->
+      <button type="submit" [disabled]="!sprintForm.valid" >Submit</button>
+      <button type="button" (click)="closeModal()">Cancel</button>
+    </form>
+  </div>
+</div>
+
+
+<button type="button" (click)="navigateToOrgProfile()" class="back-home">Back to Home</button>
+  
+  

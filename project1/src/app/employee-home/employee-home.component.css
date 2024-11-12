@@ -1,0 +1,58 @@
+.Header{
+  height: 110px;
+  background-color: #333;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  padding-top: 30px;
+  padding-left: 50px;
+  padding-right: 50px;
+  font-size: 20px;
+}
+
+
+#side:hover{
+cursor: pointer;
+}
+.Header span{
+  margin-right: 20px;
+}
+::ng-deep .custom-sidebar {
+  background-color: #595959; /* Dark background color */
+  color: white; /* White text color */
+  padding: 3rem; /* Optional padding */
+  margin-top: 8.1%;
+  width: 23%;
+}
+.hi {
+  margin-top: 30px;
+  background-color:#8684f0; /* Primary blue color */
+  color: #ffffff; /* White text color */
+  border: none; /* No border */
+  border-radius: 5px; /* Rounded corners */
+  padding: 8px 15px; /* Padding for a balanced look */
+  font-size: 16px; /* Font size */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transition */
+}
+
+/* Hover effect */
+.hi:hover {
+  background-color: #6b69c1; /* Darker blue on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* Active state */
+.hi:active {
+  transform: translateY(0); /* Remove lift effect on click */
+  background-color: #8684f0; /* Slightly darker blue */
+}
+.imgcontainer {
+  display: flex;
+  align-items: center; /* Aligns the text vertically in the center with the image */
+  margin-bottom: 10px; /* Adds space between each row if you have multiple */
+}
+ .icon{
+  height: 500px;
+  width: 20px;
+ }

@@ -1,0 +1,100 @@
+<div class="container">
+  <form [formGroup]="projectForm" (ngSubmit)="createProject()">
+    <div class="form-group">
+      <h1>Create Project</h1>
+      <label for="projectName">Project Name:</label>
+      <input 
+        id="projectName"
+        formControlName="projectName"
+        type="text"
+        [ngClass]="{'is-invalid': projectForm.get('projectName')?.invalid && projectForm.get('projectName')?.touched}" 
+        required 
+      />
+      <div *ngIf="projectForm.get('projectName')?.invalid && projectForm.get('projectName')?.touched" class="error-message">
+        !Please fill the field.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="projectDescription">Project Description:</label>
+      <input 
+        id="projectDescription"
+        formControlName="projectDescription" 
+        type="text" 
+        [ngClass]="{'is-invalid': projectForm.get('projectDescription')?.invalid && projectForm.get('projectDescription')?.touched}" 
+        required 
+      />
+      <div *ngIf="projectForm.get('projectDescription')?.invalid && projectForm.get('projectDescription')?.touched" class="error-message">
+        !Please fill the field.
+      </div>
+    </div>
+
+    <div formArrayName="sprints">
+      <div *ngFor="let sprint of sprints.controls; let i = index" [formGroupName]="i" class="sprint-group">
+        <label>Sprint Name:</label>
+        <input 
+          formControlName="sprintName" 
+          type="text" 
+          [ngClass]="{'is-invalid': sprint.get('sprintName')?.invalid && sprint.get('sprintName')?.touched}" 
+          required 
+        />
+        <div *ngIf="sprint.get('sprintName')?.invalid && sprint.get('sprintName')?.touched" class="error-message">
+          !Please fill the field.
+        </div>
+
+        <label>Sprint Description:</label>
+        <input 
+          formControlName="sprintGoal" 
+          type="text" 
+          [ngClass]="{'is-invalid': sprint.get('sprintGoal')?.invalid && sprint.get('sprintGoal')?.touched}" 
+          required 
+        />
+        <div *ngIf="sprint.get('sprintGoal')?.invalid && sprint.get('sprintGoal')?.touched" class="error-message">
+          !Please fill the field.
+        </div>
+
+        <label>Sprint Duration:</label>
+        <select formControlName="duration">
+           <option *ngFor="let week of weeks" [value]="week">{{ week }} week(s)</option>
+        </select>
+        <div *ngIf="sprint.get('duration')?.invalid && sprint.get('duration')?.touched" class="error-message">
+          !Please select the duration.
+        </div>
+
+        <label>Sprint Start Date:</label>
+        <input 
+          formControlName="sprintStartDate" 
+          type="date" 
+          [ngClass]="{'is-invalid': sprint.get('sprintStartDate')?.invalid && sprint.get('sprintStartDate')?.touched}" 
+          required 
+        />
+        <div *ngIf="sprint.get('sprintStartDate')?.invalid && sprint.get('sprintStartDate')?.touched" class="error-message">
+          !Please select the start date.
+        
+        </div>
+        <label>Sprint End Date:</label>
+         <input 
+            formControlName="sprintEndDate" 
+            type="date" 
+            [disabled]=true
+           />
+        <br>
+
+        <button type="button" (click)="removeSprint(i)">Remove Sprint</button>
+      </div>
+    </div>
+
+    <button type="button" (click)="addSprint()">Add Sprint</button>
+    <button type="submit" [disabled]="projectForm.invalid" class="button-spacing">Create Project</button>
+    <button type="button" (click)="resetForm()" class="button-spacing">Reset</button>
+  </form>
+  <button type="button" (click)="navigateToHome()" class="back-home">Back to Home</button>
+  <!-- Success message display -->
+  <div *ngIf="successMessage" class="success-message">
+    {{ successMessage }}
+  </div>
+</div>
+
+
+
+   

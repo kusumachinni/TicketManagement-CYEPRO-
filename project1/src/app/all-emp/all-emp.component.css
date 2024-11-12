@@ -1,0 +1,59 @@
+.cards-container {
+    display: flex; /* Use flexbox for layout */
+    flex-wrap: wrap; /* Allow items to wrap to the next line */
+    gap: 20px; /* Space between each card */
+    justify-content: space-around; /* Align items to the start of the container */
+    margin: 20px; /* Margin around the container */
+  }
+  h1 {
+    padding: 10px;
+    text-align: center; /* Center the heading */
+    font-size: 3.5em; /* Larger font size for the heading */
+    color:white; /* Color of the heading */
+    background-color: black;
+    height: 80px;
+    margin:0;
+  }
+  .card {
+    flex: 1 1 calc(33.33% - 20px); /* Flex-grow, flex-shrink, and base width */
+    min-width: 250px; /* Minimum width for cards */
+    max-width: 300px; /* Maximum width for cards */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+    background-color: #f7f7f7; /* Light background color */
+    padding: 20px; /* Inner padding */
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth hover effect */
+    border:1px solid rgb(48, 44, 44);
+  }
+  label{
+    font-weight: bold;
+  }
+  /* Card hover effect */
+  .card:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+  }
+  .card h2 {
+    font-size: 1.5em; /* Font size for project name */
+    color: #333; /* Color for project name */
+    margin-bottom: 10px; /* Space below title */
+  }
+  .card-body p {
+    font-size: 1em; /* Font size for description */
+    color: #555; /* Color for text */
+    margin: 5px 0; /* Space between paragraphs */
+  }
+  
+  /* Icon styling */
+  .card-body i {
+    margin-right: 8px; /* Space between icon and text */
+    color: #666; /* Color for icons */
+  }
+  .employee-name-divider {
+    border: none; /* Remove default border */
+    height: 2px; /* Thickness of the line */
+    background-color:black; /* Change this color as needed */
+    margin: 10px 0; /* Space above and below the line */
+  }
+
+  

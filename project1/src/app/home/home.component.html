@@ -1,0 +1,131 @@
+<div class="main">
+
+<div >
+    <div> 
+     <div class="org-header">
+       <h5 (click)="toggleChooseOrg()">Organisation Login</h5>
+       <h5 (click)="toggleChooseEmp()">Employee Login</h5>
+     </div> 
+   
+     <div *ngIf="default;then Org; else Emp"></div>
+    
+    
+   
+     <ng-template #Org>
+     <div  class="login-wrapper">
+       <div class="login-container">
+         <h2>Login For Organisation</h2>
+         <form (ngSubmit)="onLogin()"> 
+           <div class="form-group row">
+             <label for="organisationName" class="col-sm-4 col-form-label text-left">Enter Name</label>
+             <div class="col-sm-8 d-flex justify-content-end">
+               <input type="text" id="organisationName" [(ngModel)]="organisationName" name="organisationName" required class="form-control">
+             </div>
+           </div> 
+           <div class="form-group row">
+             <label for="organisationPassword" class="col-sm-4 col-form-label text-left">Password</label>
+             <div class="col-sm-8 d-flex justify-content-end">
+              <div class="input-group position-relative">
+                <input 
+                  [type]="passwordVisible ? 'text' : 'password'" 
+                  id="organisationPassword" 
+                  [(ngModel)]="organisationPassword" 
+                  name="organisationPassword" 
+                  required 
+                  class="form-control">
+                <span 
+                  class="input-group-text toggle-password" 
+                  (click)="togglePasswordVisibility()">
+                  <i id="eyeIcon" class="bi" [ngClass]="passwordVisible ? 'bi-eye-slash' : 'bi-eye'"></i>
+                </span>
+              </div>
+            </div>
+            
+           </div>
+           
+           <button type="submit"  [disabled]="!organisationName|| !organisationPassword" class="btn btn-primary">Submit</button>
+           
+           <section *ngIf="loginMessage" class="alert" [ngClass]="{'alert-success': success, 'alert-danger': !success}">
+             {{ loginMessage }}
+           </section>
+           <br> 
+         </form>   
+     </div>
+     </div>  
+     </ng-template>
+   
+   
+     <ng-template #Emp>
+
+   <div class="login-wrapper">
+     <div class="login-container">
+       <h2>Login</h2>
+       <form (ngSubmit)="empOnLogin()" *ngIf="isPassFormOpen"> 
+   
+         <div class="form-group row">
+           <label for="employeeName" class="col-sm-4 col-form-label text-left">Enter Name</label>
+           <div class="col-sm-8 d-flex justify-content-end">
+             <input type="text" id="employeeName" [(ngModel)]="employeeName" name="employeeName" required class="form-control">
+           </div>
+         </div>
+         
+         <div class="form-group row">
+           <label for="employeePassword" class="col-sm-4 col-form-label text-left">Password</label>
+           <div class="col-sm-8 d-flex justify-content-end">
+             <div class="input-group">
+                <input 
+                [type]="empPasswordVisible ? 'text' : 'password'" 
+                id="employeePassword" 
+                [(ngModel)]="employeePassword" 
+                name="employeePassword" 
+                required 
+                class="form-control">
+              
+               <span class="input-group-text toggle-password" (click)="empTogglePasswordVisibility()">
+                 <i  id="eyeIcon1" class="bi" [ngClass]="empPasswordVisible ? 'bi-eye-slash' : 'bi-eye'"></i>
+               </span>
+             </div>
+           </div>
+         </div>
+         
+         <button type="submit"  [disabled]="!employeeName|| !employeePassword" class="btn btn-primary" >Submit</button>
+         
+       
+         <div>
+          <!-- Forgot Password Link -->
+          <p class="forgotPasswordClass" (click)="toggleForgotPasswordForm()">Forgot Password</p>
+        </div>
+        
+        <section *ngIf="empLoginMessage" class="alert" [ngClass]="{'alert-success': empSuccess, 'alert-danger': !empSuccess}">
+          {{ empLoginMessage }}
+        </section>
+        <br>
+      </form>
+
+      <div class="forgotpass">
+        <!-- Forgot Password Form -->
+        <form *ngIf="showForgotPasswordForm" (ngSubmit)="forgotPasswordEvent()">
+          <div>
+            <label for="eName">Employee Name:</label>
+            <input type="text" id="eName" [(ngModel)]="eName" name="eName" required>
+          </div>
+          <br>
+          <div>
+            <label for="eMail">Employee Email:</label>
+            <input type="email" id="eMail" [(ngModel)]="eMail" name="eMail" required>
+          </div>
+          <br>
+          <button type="submit" (click)="changeFlag()">Submit</button>
+        </form>
+        <p *ngIf="message" class="message">{{message}}</p>
+      </div>
+    
+   </div>
+   </div>   
+   
+     </ng-template>
+     
+   </div>
+   <router-outlet></router-outlet>
+   </div>
+  </div>

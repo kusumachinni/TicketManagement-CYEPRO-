@@ -1,0 +1,259 @@
+/* .org-header */
+.org-header {
+    height: 15vh;
+    background-color: #282e38;
+    display: flex;
+    justify-content: flex-end; /* Align header content to the right */
+    align-items: center;
+    border-bottom: 2px solid #e9ecef;
+    padding: 0 20px; /* Added padding for better spacing */
+  }
+  
+  .org-header h5 {
+    margin: 0 15px;
+    padding: 10px 20px;
+    cursor: pointer;
+    color: #fff;
+    text-decoration: none;
+    font-size: large;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    background-color: transparent;
+    line-height: 5vh;
+  }
+  
+  .org-header h5:hover {
+    background-color: #556376;
+  }
+
+  
+  /* .login-wrapper */
+  .login-wrapper {
+    background-size: cover;
+    width: 100vw;
+    margin-top: 1%;
+    height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-position: center; /* Ensure the background image is centered */
+  }
+  
+  /* .login-container */
+  .login-container {
+    background: whitesmoke; /* Slightly less transparent for better readability */
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    margin-top: -12%;
+    margin-left: -2%;
+    height: 50
+    vh;
+  }
+  .main
+  {
+    background-image: url(../../../../../projects/project1/src/assets/loginpage.jpg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .form-group input {
+    width: 100%; /* Full width for input */
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    margin-top: 5px;
+  }
+  
+  .form-group input:focus {
+    outline: none;
+    border-color: #8684f0;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+  }
+  
+  button {
+    width: 100%;
+    padding: 12px;
+    background-color: #8684f0;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+  }
+  
+  button:hover {
+    background-color: #6b69c7;
+  }
+  
+  .login-message {
+    margin-top: 10px;
+    font-size: 16px;
+  }
+  
+  .login-message.success {
+    color: green;
+  }
+  
+  .login-message.error {
+    color: red;
+  }
+  
+  /* Password Input Wrapper */
+  .password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  
+  .password-wrapper .form-control {
+    width: 80%; /* Make sure input field spans the full width */
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+  }
+  
+  .password-wrapper .input-group-text {
+    background: none;
+    border-left: 0;
+    cursor: pointer;
+    padding: 12px;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    font-size: 1.2rem;
+  }
+  
+  .password-wrapper .bi {
+    color: #007bff;
+  }
+
+ /* Adjust the input group container */
+.input-group {
+    width: 100%;
+    position: relative; /* Make sure the eye icon can be positioned absolutely inside the input */
+  }
+  
+  /* Ensure the input field takes the full width */
+  .form-control {
+    width: 100%;
+    padding-right: 35px; /* Create space on the right for the icon */
+  }
+  
+  /* Position the eye icon inside the input field */
+  .toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 10px; /* Adjust distance from the right edge */
+    transform: translateY(-50%); /* Vertically center the icon */
+    cursor: pointer; /* Make the icon clickable */
+    background: none; /* Remove background */
+    border: none; /* Remove any border */
+  }
+  
+  /* Style for the eye icon */
+  #eyeIcon {
+    font-size: 1.2rem;
+    color: #000000; /* Adjust color of the eye icon */
+  }
+
+  #eyeIcon1{
+    font-size: 1.2rem;
+    color: #000000; /* Adjust color of the eye icon */
+  }
+  
+  /* Optional: Style the icon on hover */
+  .toggle-password:hover #eyeIcon {
+    color: #677789; /* Change color on hover */
+  }
+
+  .toggle-password:hover #eyeIcon1 {
+    color: #677789; /* Change color on hover */
+  }
+  
+  
+  /* Align the eye icon properly to the right of the input */
+  .password-wrapper .input-group {
+    display: flex;
+    align-items: center;
+  }
+  
+  .password-wrapper .input-group .form-control {
+    border-right: 0; /* Remove right border to join the input and icon */
+  }
+  
+  .password-wrapper .input-group .input-group-text {
+    background: #f1f1f1;
+    border-radius: 0 5px 5px 0; /* Rounded corners only on the right */
+  }
+  
+  .password-wrapper .input-group .bi {
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+  
+  /* Make form responsive */
+  @media (max-width: 768px) {
+    .login-container {
+      padding: 20px;
+      max-width: 90%; /* Make the login form more flexible on mobile */
+    }
+  
+    .org-header h5 {
+      font-size: 14px; /* Smaller text for header on mobile */
+    }
+  
+    .password-wrapper .input-group {
+      flex-direction: column; /* Stack the input and eye icon vertically on mobile */
+    }
+  
+    .password-wrapper .input-group .form-control,
+    .password-wrapper .input-group .input-group-text {
+      width: 100%;
+      margin-bottom: 10px; /* Add margin for vertical stacking */
+    }
+  }
+  
+  /* Optional: Form error styling */
+  .form-group input.ng-invalid.ng-touched {
+    border-color: red;
+  }
+  
+  .form-group input.ng-valid.ng-touched {
+    border-color: green;
+  }
+
+  .forgotPasswordClass {
+    cursor: pointer;
+    color: blue;
+    text-decoration: underline;
+  }
+  
+
+  form {
+    margin-top: 10px;
+  }
+  .message {
+    color: green;
+    margin-top: 10px;
+  }
+  

@@ -1,0 +1,105 @@
+/* Overall form styling */
+form {
+  max-width: 600px;
+  margin:50px auto; /* Center the form horizontally */
+  padding: 30px; /* Increased padding for better spacing */
+  border: 1px solid black;
+  border-radius: 8px;
+  background-color:#d8d8df;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow */
+}
+
+/* Centering and styling the header */
+h1 {
+  text-align: center; /* Centered heading */
+  color: black; /* Dark color for contrast */
+  margin-bottom: 20px; /* Space below the header */
+  font-family: Calibri, sans-serif;
+}
+
+/* Label styling */
+label {
+  display: block;
+  font-weight: bold;
+  margin-top: 15px;
+  color:black;
+  width: 100%; /* Full width for better alignment */
+}
+
+/* Form group styling */
+.form-group {
+  margin-bottom: 20px; /* Space between form fields */
+}
+
+/* Input field styling */
+input[type="text"] {
+  width: calc(100% - 20px); /* Full width minus padding */
+  font-family: Calibri, sans-serif;
+  padding: 10px; /* Inner padding for comfort */
+  border: 1px solid #ccc; /* Default border */
+  border-radius: 4px; /* Rounded corners */
+  font-size: 14px; /* Font size for input */
+  box-shadow: none; /* Remove default shadow */
+  transition: border-color 0.3s ease; /* Smooth transition for focus */
+}
+
+/* Styling for invalid fields */
+input.is-invalid {
+  border: 2px solid red; /* Red border for invalid fields */
+}
+
+/* Error message styling */
+.error-message {
+  color: red; /* Red text for error messages */
+  font-size: 12px; /* Smaller font size */
+  margin-top: 5px; /* Space above the error message */
+}
+
+/* Sprint group styling */
+.sprint-group {
+  border: 1px solid black; /* Light border for each sprint group */
+  border-radius: 5px; /* Rounded corners for sprint groups */
+  padding: 15px; /* Increased padding inside the sprint group */
+  margin-bottom: 15px; /* Space between sprint groups */
+  background-color: #d8d8df; /* Light background for sprint groups */
+}
+
+/* Button styling */
+button {
+  padding: 10px 15px; /* Padding for buttons */
+  border: none; /* Remove border */
+  border-radius: 4px; /* Rounded corners */
+  background-color: #b47eff; /* Blue background */
+  color: black; /* White text */
+  font-size: 16px; /* Font size for buttons */
+  cursor: pointer; /* Pointer cursor on hover */
+  margin-top: 10px; /* Space above buttons */
+  transition: background-color 0.3s ease; /* Smooth transition for hover */
+  font-family: Calibri, sans-serif;
+}
+
+/* Button hover effect */
+button:hover {
+  background-color: #9654f1; /* Darker blue on hover */
+}
+.button-spacing
+{
+  margin-left: 20px;
+}
+/* Success message display */
+.success-message {
+  color: green; /* Green text for success messages */
+  font-size: 18px; /* Font size for success message */
+  margin-top: 15px; /* Space above success message */
+  font-weight: bold; /* Bold font for emphasis */
+  text-align: center; /* Centered success message */
+}
+button[type="submit"]:disabled
+{
+  cursor:not-allowed;
+}
+.back-home{
+ margin-left: 45%;
+}
+
+  

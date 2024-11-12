@@ -1,0 +1,34 @@
+<div>
+  <div class="Header">
+      <div>
+          <span class="pi pi-align-justify" (click)="openSideBar()" id="side"></span>
+         <span>{{employeeDesignation}}</span>
+      </div>
+      <div>
+          <span><i class="bi bi-buildings icon" style="font-size: 30px;"></i></span>
+          <span>cyepro</span>
+      </div>
+  </div>
+  <div class="Section"></div>
+</div>
+
+<div class="card flex justify-content-center" *ngIf="sidebarVisible" >
+  <p-sidebar [(visible)]="sidebarVisible" [styleClass]="'custom-sidebar'" >
+    <div class="imgcontainer">
+      <span><i class="bi bi-person-fill" style="font-size: xx-large;"></i></span>
+      <span style="margin-left:20px; font-size: xx-large;" >{{employeeName}}</span>
+    </div>
+      <h3>Menu</h3>
+      <div>
+      <button class="hi" (click)="GoToHome()">Home</button>
+      <button class="hi" (click)="GoToManageTicket()">Manage Ticket</button>
+      <button class="hi" (click)="GoToEmployeeDetails()">Employee Details</button>
+      <button class="hi" (click)="GoToLogout()">Logout</button>
+      
+    </div>
+  </p-sidebar>
+</div>
+<div> 
+    <router-outlet></router-outlet>
+</div>
+

@@ -1,0 +1,279 @@
+
+.cards-container {
+    display: flex; 
+    flex-wrap: wrap; 
+    gap: 20px; 
+    justify-content: space-around; 
+    margin: 20px; 
+  }
+   h1 {
+    padding: 10px;
+    text-align: center; 
+    font-size: 3.5em; 
+    color:white; 
+    background-color: black;
+    height: 80px;
+    margin:0;
+  }
+  
+ 
+  .card {
+    flex: 1 1 calc(33.33% - 20px);
+    min-width: 250px; 
+    max-width: 300px; 
+    border-radius: 8px; 
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f7f7f7;
+    padding: 20px; 
+    transition: transform 0.3s, box-shadow 0.3s; 
+    border:1px solid rgb(48, 44, 44);
+    background-color: #d8d8df;
+  }
+  label{
+    font-weight: bold;
+  }
+  
+  
+  .card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2); 
+  }
+  
+  
+  .card h2 {
+    font-size: 1.5em; 
+    color: #333; 
+    margin-bottom: 10px;
+  }
+  
+  
+  .card-body p {
+    font-size: 1em; 
+    color: #555; 
+    margin: 5px 0; 
+  }
+  
+  
+  .card-body i {
+    margin-right: 8px; 
+    color: #666; 
+  }
+  
+  .project-name-divider {
+    border: none; 
+    height: 2px; 
+    background-color:black; 
+    margin: 10px 0; 
+  }
+span{
+    font-size: 20px;
+}
+  .stats-container {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    margin-top: 5px; 
+  }
+  
+  .stat-item {
+    display: flex; 
+    align-items: center; 
+    margin-right: 5px; 
+  }
+  
+  
+  .stat-item i {
+    margin-right: 5px; 
+    font-size: 30px; 
+  }
+
+  button {
+    padding: 8px 16px;
+    margin: 10px;
+  }
+  
+  .assign-btn{
+    background-color: #b47eff;
+    color: white;
+  }
+  button:hover {
+    background-color: #9654f1;
+  }
+ /* .back-home
+ {
+    background-color: #28a745;
+    color: white;
+    
+ }   */
+button[type="submit"]:disabled
+{
+  cursor:not-allowed;
+}
+
+.modal-content ul {
+  padding: 0;
+  margin: 10px 0;
+}
+
+.modal-content li {
+  padding: 10px;
+  background-color: #f5f5f5;
+  margin-bottom: 8px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal-content li p {
+  margin: 0;
+  color: #333;
+  font-size: 1em;
+}
+
+
+.modal-content i.bi-ticket {
+  color: #007bff;
+  cursor: pointer;
+  font-size: 1.2em;
+  margin-left: auto;
+}
+ /*------------------------------------------------*/
+ 
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+
+.modal-content h3 {
+  text-align: center;
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+label {
+  font-weight: bold;
+  color: #333;
+}
+
+input, select {
+  padding: 8px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+input[type="date"] {
+  cursor: pointer;
+}
+
+
+button {
+  padding: 10px;
+  font-size: 1.1em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  
+}
+
+button[type="submit"] {
+  background-color: #b47eff;
+  color: white;
+}
+
+button[type="submit"]:hover {
+  background-color: #9654f1;
+}
+
+button[type="button"] {
+  background-color: #b47eff;
+  color: white;
+}
+
+button[type="button"]:hover {
+  background-color: #9654f1;
+}
+
+
+button[type="button"]:focus {
+  outline: none;
+}
+
+button[type="submit"]:focus {
+  outline: none;
+}
+
+
+select {
+  cursor: pointer;
+}
+
+
+input[type="date"] {
+  padding: 8px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+input[readonly] {
+  background-color: #f0f0f0;
+  cursor: not-allowed;
+}
+
+input:focus, select:focus {
+  border-color: #4CAF50;
+  outline: none;
+}
+
+
+@media (max-width: 600px) {
+  .modal-content {
+    width: 90%;
+    padding: 15px;
+  }
+
+  h3 {
+    font-size: 1.3em;
+  }
+
+  label, input, select {
+    font-size: 0.9em;
+  }
+
+  button {
+    font-size: 1em;
+  }
+}
